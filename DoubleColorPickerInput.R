@@ -3,8 +3,8 @@
 #' @param col_border (\code{character}) A hex code for the border color default value
 #' @param col_fill (\code{character}) A hex code for the fill color default value
 #' @return An \code{shiny::div} element with two color pickers
-#' @author Sebastian Wolf \email{zappingseb@@gmail.com}
-DoubleColorPickerInput <- function(id="fanycolorpicker", col_border = "#f00", col_fill="#00f"){
+#' @author Sebastian Wolf \email{sebastian@@mail-wolf.de}
+DoubleColorPickerInput <- function(id="fancycolorpicker", col_border = "#f00", col_fill="#00f"){
   
   # Return a div element of class "doubleclorpicker"
   div(
@@ -12,24 +12,26 @@ DoubleColorPickerInput <- function(id="fanycolorpicker", col_border = "#f00", co
     class="doublecolorpicker",
     
     # Include two shiny textInputs
-    textInput(inputId=glue("{id}-input-border"),label="Border Color"),
+    textInput(inputId=glue("{id}-input-border"),label="Border Color",value = col_border),
     tags$label("Fill Color"),
-    HTML(glue("<input type='text' id='{id}-input-fill'/>")),
+    HTML(glue("<input type='text' id='{id}-input-fill' value='{col_fill}'/>")),
     
     # Include the Javascript code given by the spectrum.js website
     HTML(
       glue(
         "<script>
-          $('#{id}-input-border').spectrum({{
-            color: '{col_border}'
-          }});
-          $('#{id}-input-fill').spectrum({{
-                    color: '{col_fill}'
-          }}); 
-          </script>"
+        $('#{id}-input-border').spectrum({{
+        color: '{col_border}',
+        preferredFormat: 'hex'
+        }});
+        $('#{id}-input-fill').spectrum({{
+        color: '{col_fill}',
+        preferredFormat: 'hex'
+        }}); 
+        </script>"
         
       )
-    )# HTML
+  )# HTML
   )#div
   
-}
+  }

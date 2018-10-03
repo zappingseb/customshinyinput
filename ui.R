@@ -1,14 +1,18 @@
 # Rely on the 'WorldPhones' dataset in the datasets
 # package (which generally comes preloaded).
 library(datasets)
-source("custom_input.R")
+library(glue)
+
+source("DoubleColorPickerInput.R")
 
 # Use a fluid Bootstrap layout
 fluidPage(    
   
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "spectrum.css"),
-    tags$script(src="spectrum.js")
+    tags$script(src="spectrum.js"),
+    # Import our own JavaScript file for custom Shiny input bindings
+    tags$script(src="DoubleColorPickerInput.js")
   ),
   
   # Give the page a title
@@ -23,7 +27,8 @@ fluidPage(
                   choices=colnames(WorldPhones)),
       hr(),
       helpText("Data from AT&T (1961) The World's Telephones."),
-      DoubleColorPickerInput()
+      # Create a DoubleColorPicker Input
+      DoubleColorPickerInput(id="myid")
     ),
     
     # Create a spot for the barplot
