@@ -55,6 +55,13 @@ $.extend(DoubleColorPickerBinding, {
   },
   unsubscribe: function(el) {
     $(el).off('.doublecolorpicker');
+  },
+  // Define a type for your custom input
+  // binding such that you can use the
+  // registerInputHandler functionality in
+  // shiny
+  getType: function(el) {
+    return "DoubleColorPickerBinding";
   }
 });
 

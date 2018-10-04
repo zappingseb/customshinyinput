@@ -3,6 +3,9 @@
 library(datasets)
 library(glue)
 
+# jsonlite is used to derive data from custom JavaScript inputs
+library(jsonlite)
+
 source("DoubleColorPickerInput.R")
 
 # Use a fluid Bootstrap layout
@@ -12,7 +15,11 @@ fluidPage(
     tags$link(rel = "stylesheet", type = "text/css", href = "spectrum.css"),
     tags$script(src="spectrum.js"),
     # Import our own JavaScript file for custom Shiny input bindings
-    tags$script(src="DoubleColorPickerInput.js")
+    tags$script(src="DoubleColorPickerInput.js"),
+    
+    # Import our own JavaScirpt that allows to add a warning
+    # to the shiny inputs
+    tags$script(src="DoubleColorPickerAddition.js")
   ),
   
   # Give the page a title

@@ -2,8 +2,7 @@
 # package (which generally comes preloaded).
 library(datasets)
 
-# jsonlite is used to derive data from custom JavaScript inputs
-library(jsonlite)
+
 
 # Define a server for the Shiny app
 function(input, output) {
@@ -11,9 +10,9 @@ function(input, output) {
   # Fill in the spot we created for a plot
   output$phonePlot <- renderPlot({
     
-    # Derive a data.frame out of your JSON coming
-    # from the custom input
-    colors_df <- jsonlite::fromJSON(input$myid)
+    # Derive the list of colors out 
+    # of our custom input element
+    color_list <- input$myid
 
     # Render a barplot with border
     # and fill color set by the colors_df
@@ -21,13 +20,8 @@ function(input, output) {
             main=input$region,
             ylab="Number of Telephones",
             xlab="Year",
-            col = colors$value[
-              which(grepl(colors$name,pattern="fill"))
-            ],
-            border = 
-              colors$value[
-              which(grepl(colors$name,pattern="border"))
-              ],
+            col = color_list[["fill"]],
+            border = color_list[["border"]],
             lwd=3
             )
   })
