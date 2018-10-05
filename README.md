@@ -1,4 +1,4 @@
-# 7 steps that make custom inputs in shiny easy
+# 7 easy steps to custom inputs in shiny
 
 This is the outcome shiny application out of a
 [tutorial](https://medium.com/@zappingseb/7-steps-that-make-custom-inputs-in-shiny-easy-504b303a2973) that tells you how to build this application.
@@ -29,6 +29,6 @@ runApp()
 
 ## References
 
-* [Tutorial link](https://medium.com/@zappingseb/7-steps-that-make-custom-inputs-in-shiny-easy-504b303a2973)
+* [Tutorial link - 7 easy steps to custom inputs in shiny](https://medium.com/@zappingseb/7-steps-that-make-custom-inputs-in-shiny-easy-504b303a2973)
 * [spectrum.js](https://bgrins.github.io/spectrum/)
 * [Building shiny inputs](https://shiny.rstudio.com/articles/building-inputs.html)
